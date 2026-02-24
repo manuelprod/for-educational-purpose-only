@@ -26,10 +26,9 @@ reg add "HKLM\SOFTWARE\ProcessLasso" /v UpdateChecksEnabled /t REG_DWORD /d 0 /f
 # create key file for plasso
 $Base64String="PABjAHUAcwB0AG8AbQBlAHIAPgBBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByADwALwBjAHUAcwB0AG8AbQBlAHIAPgANAAoAPABzAGkAZwBuAGEAdAB1AHIAZQA+AKfb89ul2/Hb99un26Pbptuq2/zb/9uq2/rb+Nv62/zbxNuW25TbwdvA28bbkNuf25Hbm9uc28/bmNvL25nbzds8AC8AcwBpAGcAbgBhAHQAdQByAGUAPgA="
 [System.IO.File]::WriteAllBytes("$env:ProgramFiles\Process Lasso\prolasso.key", [Convert]::FromBase64String($Base64String))
-# change licence to usarname for plasso
+# change licence to username for plasso
 reg add "HKCU\SOFTWARE\ProcessLasso" /v LicensedTo /t REG_SZ /d "$env:USERNAME" /f | Out-Null
 reg add "HKLM\SOFTWARE\ProcessLasso" /v LicensedTo /t REG_SZ /d "$env:USERNAME" /f | Out-Null
 # disable win game mode
 reg add "HKCU\SOFTWARE\Microsoft\GameBar" /v "AllowAutoGameMode" /t REG_DWORD /d 0 /f | Out-Null
 reg add "HKCU\SOFTWARE\Microsoft\GameBar" /v "AutoGameModeEnabled" /t REG_DWORD /d 0 /f | Out-Null
-PAUSE
